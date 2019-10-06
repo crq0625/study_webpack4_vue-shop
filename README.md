@@ -1,4 +1,8 @@
-cnpm install -D vue-loader vue-template-compiler
+####　安装vue-router 参考官网
+~~~~
+cnpm install vue-router
+~~~~
+####　vm中的渲染关系
 ~~~~
     <router-link to="/account">account</router-link>
     <router-link to="/goodList">goodlist</router-link>
@@ -12,18 +16,23 @@ cnpm install -D vue-loader vue-template-compiler
      路由的<router-view></router-view>中去。
 
     子组件的渲染只能在他属于的父组建中渲染
-
 ~~~~
+
 #### 组件的样式
 ~~~~
 1）scoped 样式只能在当前组建中使用。
 2）如果不加scoped 默认是全局的样式
+3) 普通标签只支持普通的样式，如果想要启用scss或者less需要为style元素试着lang属性
 <style lang="less" scoped>
-/** 普通标签只支持普通的样式，如果想要启用scss或者less需要为style元素试着lang属性*/
     body{
         div{
             
         }
     }
 </style>
+~~~~
+
+#### 路由代码参考router.js
+~~~~
+这是抽离后的代码
 ~~~~
