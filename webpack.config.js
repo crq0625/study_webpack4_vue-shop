@@ -1,7 +1,7 @@
 const path = require('path');
 //通过Node中的模块操作，向外暴露了一个配置文件。
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin   = require('vue-loader/lib/plugin')
 module.exports = {
     mode: 'development',
     entry: './src/main.js',//入口文件，表示要使用webpack打包的文件
@@ -60,10 +60,6 @@ module.exports = {
                 exclude: /node_modules/,//不处理的目录
                 use: {
                     loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                        plugins: ['@babel/transform-runtime']
-                    }
                 }
             },//babel 语法转换规则处理
             {
@@ -77,7 +73,7 @@ module.exports = {
             template: path.join(__dirname,'./src/index.html'),//模板界面
             filename: "index.html"//内存中页面的名称
         }),
-        // 请确保引入这个插件！
+        // 请确保引入这个插件！vue-loader 使用。
         new VueLoaderPlugin()
     ]
 };

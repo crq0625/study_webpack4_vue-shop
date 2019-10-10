@@ -36,3 +36,36 @@ cnpm install vue-router
 ~~~~
 这是抽离后的代码
 ~~~~
+
+## mint-ui代码片段
+~~~~
+cnpm install babel-plugin-component -D
+
+{
+  "presets": [
+    ["@babel/preset-env"]
+  ],
+  "plugins": [
+    ["@babel/transform-runtime"],
+    [
+      "component",
+      {
+        "libraryName": "mint-ui",
+        "style": true
+      }
+    ]
+  ]
+}
+~~~~
+
+## MUI 代码片段
+~~~~
+https://dev.dcloud.net.cn/mui/
+mui是代码片段，与mint-ui有本质的区别，mui与bootstrap相同，
+是提供了style和html的代码片段。
+与小米ui无关系
+
+mint-ui 是现成的组件库，只能和vue使用。
+mui 使用与任何组件，不能使用npm下载，需要手动下载，并解压。
+然后拷贝到项目中使用。
+~~~~
