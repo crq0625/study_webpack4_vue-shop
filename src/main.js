@@ -9,6 +9,10 @@ import 'lib-flexible'
 
 //导入App.vue 根组件
 import app from './App.vue'
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';    // 使用 CSS
+Vue.use(iView);
+
 
 //自定义路由
 import router from "./router.js";

@@ -1,9 +1,15 @@
 //路由抽离
 import Vue from 'vue'
+//导入vue-resource
+import VueResource from 'vue-resource'
+//安装vue-resource
+Vue.use(VueResource)
+
 //1导入vuerouter
 import VueRouter from 'vue-router'
 //2手动安装VueRouter
 Vue.use(VueRouter)
+
 //3)导入组件
 import HomeContainer from "./components/HomeContainer.vue";
 import ShopContainer from "./components/ShopContainer.vue";

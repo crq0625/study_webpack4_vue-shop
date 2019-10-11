@@ -60,13 +60,19 @@ module.exports = {
                     ]
             },//图片URL处理
             {
-                test:/\.(ttf|eot|woff|svg)$/i,
+                test:/\.(ttf|eot|woff|woff2|svg)$/i,
                 use:[
                     {
                         loader: "url-loader",
                     }
                 ]
             },//字体URL处理
+            {
+                test: /iview\.src\.*?js$/,
+                use: {
+                    loader: 'babel-loader',
+                }
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,//不处理的目录
