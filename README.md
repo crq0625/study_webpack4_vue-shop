@@ -1,71 +1,26 @@
-####　安装vue-router 参考官网
-~~~~
-cnpm install vue-router
-~~~~
-####　vm中的渲染关系
-~~~~
-    <router-link to="/account">account</router-link>
-    <router-link to="/goodList">goodlist</router-link>
-    <router-view></router-view>
-    需要写到app.vue中，因为index.html中的#app内容会被app.vue中的内容替换。
-    因此需要把上面的内容放到app.vue里面。
+##　git 管理代码
+1. git add .
+2. git commit -m "提交信息"
+3. git push
 
-     APP 组件是通过 vm 实例的render函数渲染出来的，render函数渲染出来的组件只能放到el:'#app'
-     所指定的元素中。
-     account.vue和GoodList.vue组件，是通过路由匹配监听到的，所以这两个组件只能展示到属于
-     路由的<router-view></router-view>中去。
 
-    子组件的渲染只能在他属于的父组建中渲染
-~~~~
+## 制作首页
+顶部是header
+中间是内容变化层
+底部是tabbar
 
-#### 组件的样式
-~~~~
-1）scoped 样式只能在当前组建中使用。
-2）如果不加scoped 默认是全局的样式
-3) 普通标签只支持普通的样式，如果想要启用scss或者less需要为style元素试着lang属性
-<style lang="less" scoped>
-    body{
-        div{
-            
-        }
-    }
-</style>
-~~~~
+用router-link 代替a标签。
+用router-view 来展示路由匹配到的组件。
+设置路由高亮，点击路由后可以设置，class属性。
 
-#### 路由代码参考router.js
-~~~~
-这是抽离后的代码
-~~~~
+## 页面适配
+cnpm install lib-flexible -S
 
-## mint-ui代码片段
-~~~~
-cnpm install babel-plugin-component -D
+## px转换rem
+cnpm install px2rem-loader --save-dev
 
-{
-  "presets": [
-    ["@babel/preset-env"]
-  ],
-  "plugins": [
-    ["@babel/transform-runtime"],
-    [
-      "component",
-      {
-        "libraryName": "mint-ui",
-        "style": true
-      }
-    ]
-  ]
-}
-~~~~
-
-## MUI 代码片段
-~~~~
-https://dev.dcloud.net.cn/mui/
-mui是代码片段，与mint-ui有本质的区别，mui与bootstrap相同，
-是提供了style和html的代码片段。
-与小米ui无关系
-
-mint-ui 是现成的组件库，只能和vue使用。
-mui 使用与任何组件，不能使用npm下载，需要手动下载，并解压。
-然后拷贝到项目中使用。
-~~~~
+App.vue 组件入口。
+lib 第三方库文件夹。
+index.html。html模板文件。
+main.js   js文件。
+router.js 路由入口文件。

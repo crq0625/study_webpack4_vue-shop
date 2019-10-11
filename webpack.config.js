@@ -15,7 +15,13 @@ module.exports = {
                 test: /\.css$/,//处理的文件
                 use:[
                     {loader:'style-loader'},
-                    {loader: 'css-loader'}
+                    {loader: 'css-loader'},
+                    {loader: 'px2rem-loader',
+                        options: {
+                            remUnit: 75,
+                            remPrecision: 8 //小数点微说
+                        }
+                    }
                 ]
             },//处理css文件的loader配置
             {
@@ -23,6 +29,12 @@ module.exports = {
                 use:[
                     {loader: "style-loader"},
                     {loader: "css-loader"},
+                    {loader: 'px2rem-loader',
+                        options: {
+                            remUnit: 75,
+                            remPrecision: 8
+                        }
+                    },
                     {loader: "less-loader"}
                 ]
             },//处理less文件的loader配置
