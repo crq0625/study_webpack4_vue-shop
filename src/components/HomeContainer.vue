@@ -1,13 +1,21 @@
 <template>
     <div class="home">
-            <Carousel v-model="value" :height="imageHeight">
-                <Carousel-item v-for="item in pageData.flash" :key="item.id">
-                    <div class="demo-carousel" style="position: relative;background-color: red;">
-                        <img :src="'http://hphc.yd-x.com'+item.pic" style="width: 100%;height: auto">
-                        <div class="title" v-text="item.title" style="position: absolute;left: 0;bottom: 0;"></div>
-                    </div>
-                </Carousel-item>
-            </Carousel>
+<!--        轮播图-->
+        <Carousel v-model="value" :height="imageHeight">
+            <Carousel-item v-for="item in pageData.flash" :key="item.id">
+                <div class="demo-carousel" style="position: relative;background-color: red;">
+                    <img :src="'http://hphc.yd-x.com'+item.pic" style="width: 100%;height: 100%">
+                    <div class="title" v-text="item.title" style="position: absolute;left: 0;bottom: 0;"></div>
+                </div>
+            </Carousel-item>
+        </Carousel>
+<!--        九宫格icon图标-->
+        <div class="box-container">
+            <div class="box-container-item" v-for="item in pageData.menu">
+                <img v-bind:src="item.image" class="box-container-item-img">
+                <div class="box-container-item-title" v-text="item.title.substring(0,5)">打印机</div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -52,11 +60,11 @@
 </script>
 
 <style lang="less" scoped>
-    h3{
-        padding-top: 100px;
-    }
     .home{
         padding-top: 100px;
+        padding-bottom: 137.5px;
+        overflow-x: hidden;
+        width: 10rem;
     }
     .content{
         width: 100%;
@@ -83,5 +91,43 @@
         color: white;
         background-color: rgba(0,0,0,0.7);
         width: 100%;
+    }
+/*    九宫格*/
+    .box-container{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;//换行方式
+        background-color: transparent;
+        .box-container-item{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            margin-left: 37.5px;
+            background-color: transparent;
+            margin-top: 37.5px;
+            .box-container-item-img{
+                flex: 0 0 150px;
+                width: 150px;
+                height: 150px;
+                background-color: transparent;
+                border-radius: 75px;
+            }
+            .box-container-item-title{
+                text-align: center;
+                color: black;
+                font-size: 32px;
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                margin-top: 10px;
+                background-color: transparent;
+                font-weight: 400;
+            }
+        }
     }
 </style>
