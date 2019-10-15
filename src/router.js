@@ -11,7 +11,7 @@ import ShopContainer from "./components/ShopContainer.vue";
 import SearchContainer from "./components/SearchContainer.vue";
 import MemberContainer from "./components/MemberContainer.vue";
 import NewsList from "./news/NewsList.vue"
-
+import NewsInfo from "./news/newsinfo.vue"
 //4)创建vueRouter 对象
 var router = new VueRouter({
     routes:[
@@ -20,6 +20,7 @@ var router = new VueRouter({
         {path:'/shop',component:ShopContainer},
         {path:'/search',component:SearchContainer},
         {path:'/home/newlist',component:NewsList},
+        {path:'/home/newsinfo/:id',component:NewsInfo},
     ],
     linkActiveClass:'bar_item_select'
 });

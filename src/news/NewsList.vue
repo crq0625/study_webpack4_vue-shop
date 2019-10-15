@@ -5,14 +5,17 @@
                 <div class="item-head-title" v-text="item.name"></div>
                 <img class="item-head-img" src="../assets/Arrow.png">
             </div>
+            
             <div
             v-show="item.selectedflag"
             class="item-body" 
-            v-for="(articleinfo,subIndex) in item.articleinfo" 
-            v-bind:key="articleinfo.id" 
-            @click="clickArticleAction(subIndex,articleinfo)">
+            v-for="(articleinfo) in item.articleinfo" 
+            v-bind:key="articleinfo.id">
+                 <router-link :to="'/home/newsinfo/'+articleinfo.aid">
                 <div class="item-body-title" v-text="articleinfo.title" ></div>
+                </router-link>
             </div>
+            
         </div>
     </div>
 </template>
@@ -49,18 +52,8 @@
                 }else{
                     category.selectedflag = true;
                 }
+                //更新数据中的元素
                 this.$set(this.newsList,index,category);
-                console.log(this.newsList[index]);
-                // console.log(this.newsList[index].selected);
-                // console.log(index);
-                // console.log(category.id);
-            },
-            /**
-             * 点击标题
-             */
-            clickArticleAction(index,articleInfo){
-                console.log(index);
-                console.log(articleInfo.title);
             }
         }
     }
@@ -74,6 +67,8 @@
     height: 100vh;
     box-sizing: border-box;
     padding: 100px 0px;
+    overflow: hidden;
+    position: relative;
     .item{
         .item-head{
             height: 100px;

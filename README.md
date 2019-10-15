@@ -17,6 +17,7 @@
 cnpm install lib-flexible -S
 
 ## px转换rem
+~~~
 cnpm install px2rem-loader --save-dev
 
 App.vue 组件入口。
@@ -24,3 +25,16 @@ lib 第三方库文件夹。
 index.html。html模板文件。
 main.js   js文件。
 router.js 路由入口文件。
+~~~
+
+## moment.js 日志格式化插件
+
+## 组件界面css初始化
+~~~
+.page{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+~~~

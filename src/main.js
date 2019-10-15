@@ -22,6 +22,12 @@ import {Carousel,CarouselItem} from 'iview';
 Vue.component(Carousel.name,Carousel);
 Vue.component(CarouselItem.name,CarouselItem);
 
+//格式化时间插件
+import moment from 'moment';
+//定义全局过滤器,第一个参数数是管道符前面的值
+Vue.filter('dataFormat',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
+    return moment(dataStr).format(pattern);
+});
 
 //自定义路由
 import router from "./router.js";

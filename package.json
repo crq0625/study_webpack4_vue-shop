@@ -20,6 +20,7 @@
     "layui-src": "^2.5.5",
     "lib-flexible": "^0.3.2",
     "mint-ui": "^2.2.13",
+    "moment": "^2.24.0",
     "popper.js": "^1.14.7",
     "vue": "^2.6.10",
     "vue-resource": "^1.5.1",
