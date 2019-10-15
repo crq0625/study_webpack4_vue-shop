@@ -103,19 +103,33 @@ export default{
         }
     }
 
+    /*
+        vue分为入场动画,和离场动画
+        v-enter 这是入场动画开始之前的状态,即原状态 到 达到动画效果的时间段的起始点
+        v-leave-to 是离场动画结束后的状态 即 动画效果还原到初始状态后的结束点
+        注意下面的是类名,不要少写了点
+        .v-enter,.v-leave-to{
+            opacity: 0; //透明度,0代表完全透明,1完全不透明
+        }
+        .v-enter-active,.v-leave-active{
+            transition: all 1s ease;  // all 所有样式, 0.5秒动画的执行时间,ease变速执行
+        }
+    */
+
     .v-enter{
-        /*动画之前的位置*/
-        opacity: 0;
+        /*入场动画之前的位置*/
+        opacity: 1;
         transform: translateX(100%);
     }
     .v-leave-to{
-        /*动画结束的位置*/
-        opacity: 0;
+        /*出场动画动画结束的位置*/
+        opacity: 1;
         transform: translateX(-100%);
         position: absolute;
     }
-    .v-enter-active{}
+    // 定义动画
+    .v-enter-active,
     .v-leave-active{
-        transition: all 0.5s ease;
+        transition: all 0.5s linear;
     }
 </style>

@@ -1,10 +1,5 @@
 //路由抽离
 import Vue from 'vue'
-//导入vue-resource
-import VueResource from 'vue-resource'
-//安装vue-resource
-Vue.use(VueResource)
-
 //1导入vuerouter
 import VueRouter from 'vue-router'
 //2手动安装VueRouter
@@ -15,6 +10,7 @@ import HomeContainer from "./components/HomeContainer.vue";
 import ShopContainer from "./components/ShopContainer.vue";
 import SearchContainer from "./components/SearchContainer.vue";
 import MemberContainer from "./components/MemberContainer.vue";
+import NewsList from "./news/NewsList.vue"
 
 //4)创建vueRouter 对象
 var router = new VueRouter({
@@ -23,6 +19,7 @@ var router = new VueRouter({
         {path:'/member',component:MemberContainer},
         {path:'/shop',component:ShopContainer},
         {path:'/search',component:SearchContainer},
+        {path:'/home/newlist',component:NewsList},
     ],
     linkActiveClass:'bar_item_select'
 });
