@@ -16,11 +16,15 @@ Vue.http.options.root = 'http://hphc.yd-x.com/';
 
 //导入App.vue 根组件
 import app from './App.vue'
-import 'iview/dist/styles/iview.css';    // 使用 CSS
 
-import {Carousel,CarouselItem} from 'iview';
-Vue.component(Carousel.name,Carousel);
-Vue.component(CarouselItem.name,CarouselItem);
+import { 
+    Swipe, SwipeItem,
+    Navbar, TabItem
+} from 'mint-ui'
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Navbar.name, Navbar);
+Vue.component(TabItem.name, TabItem);
 
 //格式化时间插件
 import moment from 'moment';

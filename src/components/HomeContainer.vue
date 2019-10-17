@@ -1,24 +1,23 @@
 <template>
     <div class="home">
         <!--        轮播图-->
-        <Carousel v-model="value" :height="imageHeight">
-            <Carousel-item v-for="item in pageData.flash" :key="item.id">
-                <div class="demo-carousel" style="position: relative;background-color: red;">
-                    <img :src="'http://hphc.yd-x.com'+item.pic" style="width: 100%;height: 100%">
-                    <div class="title" v-text="item.title" style="position: absolute;left: 0;bottom: 0;"></div>
-                </div>
-            </Carousel-item>
-        </Carousel>
-        <!--        九宫格icon图标-->
+        <div :style="{height:imageHeight +'px'}">
+            <mt-swipe :auto="4000" :show-indicators="false">
+                <mt-swipe-item v-for="item in pageData.flash" :key="item.id">
+                     <div class="demo-carousel" style="position: relative;background-color: red;overflow:hidden;">
+                        <img :src="'http://hphc.yd-x.com'+item.pic" :style="{width: '100%',height: imageHeight+'px'}">
+                        <div class="title" v-text="item.title" style="position: absolute;left: 0;bottom: 0;"></div>
+                    </div>
+                </mt-swipe-item>
+            </mt-swipe>
+        </div>
+        <!--九宫格icon图标-->
         <div class="box-container">
-            <div class="box-container-item" v-for="item in pageData.menu" v-bind:key="item.id">
+            <div class="box-container-item" v-for="item in pageData.menu" v-bind:key="item.id" @click="clickIconAction(item)">
                 <img v-bind:src="item.image" class="box-container-item-img">
                 <div class="box-container-item-title" v-text="item.title.substring(0,5)">打印机</div>
             </div>
         </div>
-       <router-link class="newslist" to="/home/newlist">
-            新闻列表
-       </router-link>
     </div>
 </template>
 <script>
@@ -32,9 +31,9 @@
             }
         },
         created(){
-            const scale = 640/400;
-            let imageHeight = window.screen.availWidth/scale;
-            imageHeight = Math.ceil(imageHeight)*window.devicePixelRatio;
+            const scale = 400/640;
+            let imageHeight = window.screen.availWidth*scale;
+            imageHeight = Math.ceil(imageHeight);
             this.imageHeight = imageHeight;
             this.getLunbotu();
         },
@@ -57,24 +56,36 @@
                         // Toast('加载轮播图失败');
                     }
                 );
+            },
+            clickIconAction(item){
+                console.log(item.skipkey);
+                if(item.skipkey == '最新市场活动及信息公布'){
+                    this.$router.push({
+                        path: '/home/newlist'
+                    })
+                }else if(item.skipkey == '惠普服务(web)'){
+                    this.$router.push({
+                        path: '/home/photolist'
+                    })
+                }
             }
         }
     }
 </script>
 
 <style lang="less" scoped>
-// 新闻列表
-.newslist{
-    height: 80px;
-    color: black;
-    text-align: center;
-    display: block;
-    line-height: 80px;
-    background-color:#9ed89e79;
-    box-sizing: border-box;
-    font-size: 32px;
-    border: 1px solid #dddddd;/*no*/
-}
+    // 新闻列表
+    .newslist{
+        height: 80px;
+        color: black;
+        text-align: center;
+        display: block;
+        line-height: 80px;
+        background-color:#9ed89e79;
+        box-sizing: border-box;
+        font-size: 32px;
+        border: 1px solid #dddddd;/*no*/
+    }
     .home{
         padding-top: 100px;
         padding-bottom: 137.5px;
@@ -83,21 +94,6 @@
     }
     .content{
         width: 100%;
-    }
-    .mint-swipe {
-        .mint-swipe-item {
-            &:nth-child(1){
-              background-color: red;
-            }
-
-             &:nth-child(2){
-                 background-color: blue;
-             }
-
-            &:nth-child(3){
-                background-color: yellow;
-            }
-        }
     }
     .title{
         font-size: 32px;
@@ -126,11 +122,11 @@
             background-color: transparent;
             margin-top: 37.5px;
             .box-container-item-img{
-                flex: 0 0 150px;
-                width: 150px;
-                height: 150px;
+                flex: 0 0 100px;
+                width: 100px;
+                height: 100px;
                 background-color: transparent;
-                border-radius: 75px;
+                border-radius: 50px;
             }
             .box-container-item-title{
                 text-align: center;

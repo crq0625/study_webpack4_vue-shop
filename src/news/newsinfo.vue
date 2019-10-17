@@ -1,12 +1,15 @@
 <template>
     <div class="page">
+        <!-- 标题 -->
         <p class="info-title" v-text="info.title"></p>
-        <p class="info-content" v-html="info.content">
-
-        </p>
+        <!-- 内容 -->
+        <p class="info-content" v-html="info.content"></p>
+        <!-- 评论 -->
+        <comment-box :id="id"></comment-box>
     </div>
 </template>
 <script>
+import comment from '../components/subcomponents/comment.vue'
     export default {
         data(){
             return{
@@ -28,6 +31,10 @@
                     }
                 });
             }
+        },
+        components:{
+            //注册子组件内容
+            'comment-box':comment
         }
     }
 </script>

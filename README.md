@@ -34,7 +34,35 @@ router.js 路由入口文件。
 .page{
     width:100vw;
     height:100vh;
-    overflow:hidden;
     position:relative;
 }
 ~~~
+
+## vue中数组的更新需要使用特别方法。
+
+
+## 创建公用评论组件。
+1 创建组件
+2 引入组件
+3 父组件中使用components 属性，注册组件
+4 标签中使用组件名称，引入
+
+## 子组件被挂载的时候，会加载自己的声明周期。
+
+## 禁用webpack 打包时候的严格模式。
+ cnpm install babel-plugin-transform-remove-strict-mode
+ .babelrc
+ {
+     "plugins":['transform-remove-strict-mode']
+ }
+
+ ## Vant 轻量、可靠的移动端 Vue 组件库 https://youzan.github.io/vant/#/zh-CN/quickstart
+ ## http://vue.ydui.org/docs/#/tab
+
+ ## 全局使用导入组件
+    使用vue.components();注册。
+ ## 局部使用组件
+   在components属性上注册
+
+## 解决visual studio 卡顿问题
+search.followSymlinks ：false
