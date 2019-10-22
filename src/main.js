@@ -14,6 +14,7 @@ Vue.use(VueResource)
 // 定义全局变量
 Vue.http.options.root = 'http://hphc.yd-x.com/';
 
+import './lib/mui/css/mui.min.css'
 //导入App.vue 根组件
 import app from './App.vue'
 import MintUI from 'mint-ui'

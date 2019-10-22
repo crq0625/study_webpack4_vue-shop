@@ -1,16 +1,7 @@
 <template>
     <div class="home">
         <!--        轮播图-->
-        <div :style="{height:imageHeight +'px'}">
-            <mt-swipe :auto="4000" :show-indicators="false">
-                <mt-swipe-item v-for="item in pageData.flash" :key="item.id">
-                     <div class="demo-carousel" style="position: relative;background-color: red;overflow:hidden;">
-                        <img :src="'http://hphc.yd-x.com'+item.pic" :style="{width: '100%',height: imageHeight+'px'}">
-                        <div class="title" v-text="item.title" style="position: absolute;left: 0;bottom: 0;"></div>
-                    </div>
-                </mt-swipe-item>
-            </mt-swipe>
-        </div>
+        <swiper :swiperlist="pageData.flash"></swiper>
         <!--九宫格icon图标-->
         <div class="box-container">
             <div class="box-container-item" v-for="item in pageData.menu" v-bind:key="item.id" @click="clickIconAction(item)">
@@ -21,6 +12,7 @@
     </div>
 </template>
 <script>
+    import swiper from './subcomponents/swiper.vue'
     export default {
         name: "HomeContainer",
         data(){
@@ -67,8 +59,15 @@
                     this.$router.push({
                         path: '/home/photolist'
                     })
+                }else if(item.skipkey == '惠普耗材官方商城(web)'){
+                    this.$router.push({
+                        path: '/home/goodlist'
+                    })
                 }
             }
+        },
+        components:{
+            swiper
         }
     }
 </script>
@@ -93,14 +92,6 @@
         width: 10rem;
     }
     .content{
-        width: 100%;
-    }
-    .title{
-        font-size: 32px;
-        padding: 10px;
-        text-align: center;
-        color: white;
-        background-color: rgba(0,0,0,0.7);
         width: 100%;
     }
 /*    九宫格*/

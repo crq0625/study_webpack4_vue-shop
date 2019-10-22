@@ -18,7 +18,7 @@
           <img src="http://hphc.yd-x.com/Public/ydxcms/img/Supplies2Printer_gray.png">
           <div>会员</div>
         </router-link>
-        <router-link class="car tabbar-item" to="/shop">
+        <router-link class="car tabbar-item" to="/shop" id="shop">
           <img src="http://hphc.yd-x.com/Public/ydxcms/img/Printer2Supplies_gray.png">
           <div>购物车</div>
         </router-link>
